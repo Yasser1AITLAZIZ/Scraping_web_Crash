@@ -1,0 +1,5 @@
+beautifulsoup4==4.12.3
+undetected-chromedriver==3.5.5
+selenium==4.27.1
+pytz==2024.2
+webdriver-manager==4.0.2
