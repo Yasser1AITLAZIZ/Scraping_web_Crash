@@ -21,7 +21,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import undetected_chromedriver as uc
 
 from logger import setup_logger
-
+from app import SCRAP_DURATION
 
 class ImprovedWebScraper:
     def __init__(self, duration: int = 180, live_prediction: bool = False) -> None:
@@ -282,11 +282,11 @@ class ImprovedWebScraper:
             self.logger.warning("Driver was not initialized or already closed.")
 
 
-def main(): 
-    scraper = ImprovedWebScraper(duration=60*60*24*3, live_prediction=False)
+def main(duration: float): 
+    scraper = ImprovedWebScraper(duration=duration, live_prediction=False)
     scraper.setup_driver()
     scraper.start_scraping()
 
 
 if __name__ == "__main__":
-    main()
+    main(SCRAP_DURATION)
