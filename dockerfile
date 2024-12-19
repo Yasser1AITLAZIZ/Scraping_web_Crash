@@ -53,14 +53,11 @@ COPY . /app
 # --------------------------
 # Environment variables
 # --------------------------
-ENV DISPLAY=:99
 ENV PYTHONPATH=/app/
 
 # --------------------------
 # Start Xvfb before running Chrome
 # --------------------------
-# Lancement de Xvfb en arrière-plan
-RUN Xvfb :99 -screen 0 1920x1080x24 &
 
 # Note : Pour s'assurer que Xvfb tourne bien au lancement du conteneur, 
 COPY entrypoint.sh /entrypoint.sh
@@ -71,4 +68,4 @@ ENTRYPOINT ["/entrypoint.sh"]
 # --------------------------
 # Commande de lancement
 # --------------------------
-CMD ["streamlit", "run", "app.py"]
+# CMD ["streamlit", "run", "app.py"]
