@@ -237,9 +237,8 @@ class ImprovedWebScraper:
         start_time_str = self.get_timestamp().replace(':', '_')
         end_time = morocco_time + dt.timedelta(seconds=self.duration)
         end_time_str = end_time.strftime('%Y-%m-%d_%H_%M_%S')
-        if self.live_prediction:
-            return f"pipeline_ml/live_predictor/live_prediction/data_brute_{start_time_str}_to_{end_time_str}.csv"
-        return f"data_brute_{start_time_str}_to_{end_time_str}.csv"
+        os.makedirs(os.path.dirname("data_brute/"), exist_ok=True)
+        return f"data_brute/data_brute_{start_time_str}_to_{end_time_str}.csv"
 
     def get_log_file_name(self) -> str:
         """
@@ -252,8 +251,7 @@ class ImprovedWebScraper:
         start_time_str = datetime.now(pytz.timezone('Africa/Casablanca')).strftime('%Y-%m-%d_%H_%M_%S')
         end_time = morocco_time + dt.timedelta(seconds=self.duration)
         end_time_str = end_time.strftime('%Y-%m-%d_%H_%M_%S')
-        if self.live_prediction:
-            return f"pipeline_ml/live_predictor/live_prediction/logs/log_{start_time_str}_to_{end_time_str}.txt"
+
         return f"logs/log_{start_time_str}_to_{end_time_str}.txt"
 
     def start_scraping(self) -> None:

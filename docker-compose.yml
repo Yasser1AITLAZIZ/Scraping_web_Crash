@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  app_service:
+    image: yasser1aitlaziz/scraping_web_app # Remplacez par le nom de votre image si différent
+    container_name: scraping_app_container
+    build:
+      context: .
+    environment:
+      - SCRAPING_DURATION=3400
+    ports:
+      - "8501:8501" # Port pour accéder à Streamlit
+    volumes:
+      - ./data_brute:/app/data_brute/ # Bind mount pour connecter data_brute/ de la VM à /app/data_brute dans>    environment:
