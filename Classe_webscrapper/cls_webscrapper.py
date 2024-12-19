@@ -61,6 +61,9 @@ class ImprovedWebScraper:
         options.add_argument('--disable-blink-features=AutomationControlled')
         options.add_argument("--lang=fr-FR")
         options.add_argument('--incognito')
+        options.add_argument('--no-sandbox')
+        options.add_argument('--disable-dev-shm-usage')
+        options.add_argument('--disable-gpu')
 
         try:
             # Use webdriver_manager to automatically install the correct driver
